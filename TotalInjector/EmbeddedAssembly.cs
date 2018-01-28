@@ -100,7 +100,8 @@ public class EmbeddedAssembly
         asm = Assembly.LoadFile(tempFile);
 
         // Add the loaded DLL/assembly into dictionary
-        dic.Add(asm.FullName, asm);
+        if(!dic.ContainsKey(asm.FullName))
+            dic.Add(asm.FullName, asm);
     }
 
     /// <summary>

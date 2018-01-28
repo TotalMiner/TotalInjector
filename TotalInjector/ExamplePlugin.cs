@@ -34,13 +34,7 @@ namespace TotalInjector
         public void Initialize(ITMPluginManager mgr, string path)
         {
             var harmony = HarmonyInstance.Create("ga.totalminer.totalinjector");
-            var shopMenu = AccessTools.TypeByName("StudioForge.TotalMiner.Screens2.ShopMenu");
-            var tradeMethod = AccessTools.Method(shopMenu, "TradeCore");
-            var prefix = typeof(ExamplePatch).GetMethod("Prefix");
-            var postfix = typeof(ExamplePatch).GetMethod("Postfix");
-            harmony.Patch(tradeMethod,
-                new HarmonyMethod(prefix),
-                new HarmonyMethod(postfix));
+            harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
 
         public void InitializeGame(ITMGame game)
