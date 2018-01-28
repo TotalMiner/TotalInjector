@@ -22,12 +22,6 @@ namespace TotalInjector.Patch
             return true;
         }
 
-        [HarmonyPostfix]
-        static void Postfix()
-        {
-
-        }
-
         [HarmonyTargetMethod]
         static MethodInfo CalculateMethod(HarmonyInstance harmony)
         {
